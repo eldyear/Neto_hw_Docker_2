@@ -240,3 +240,8 @@ f7f057a72f61   alpine                    "sleep infinity"         2 hours ago   
 [compose.yml](./Compose-1/compose.yml)
 
 ![img](img/dashboard.png)
+
+### Задание 8
+
+![img](img/img6.png)
+![img](img/img7.png)
