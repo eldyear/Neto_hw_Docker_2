@@ -12,16 +12,15 @@
 ```bash
 eldyear@fedora:~/netology/Контейнеризация/Docker-2/Neto_hw_Docker_2/Compose-1$ docker compose up -d
 WARN[0000] /home/eldyear/netology/Контейнеризация/Docker-2/Neto_hw_Docker_2/Compose-1/compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
-[+] up 5/5
- ✔ Image alpine                          Pulled                                                                                                       4.4s
- ✔ Network Akmatov E.M.                  Created                                                                                                      0.1s
+[+] up 2/2
+ ✔ Network Akmatov_E_M-my-netology-hw    Created                                                                                                      0.1s
  ✔ Container compose-1-placeholder-app-1 Created                                                                                                      0.2s
-eldyear@fedora:~/netology/Контейнеризация/Docker-2/Neto_hw_Docker_2/Compose-1$ docker network inspect Akmatov\ E.M.
+eldyear@fedora:~/netology/Контейнеризация/Docker-2/Neto_hw_Docker_2/Compose-1$ docker network inspect Akmatov_E_M-my-netology-hw 
 [
     {
-        "Name": "Akmatov E.M.",
-        "Id": "428f673f8ace75f4c8a95d4ffe3a465488b0c8259f5fc3f04ed6c0108a62070a",
-        "Created": "2026-01-30T21:05:06.719575768+06:00",
+        "Name": "Akmatov_E_M-my-netology-hw",
+        "Id": "baee62d26c8af3cbfb937ca528a4eb8d1708b7ee9472def5c319990cb7729dab",
+        "Created": "2026-01-30T21:17:57.834680249+06:00",
         "Scope": "local",
         "Driver": "bridge",
         "EnableIPv4": true,
@@ -45,16 +44,16 @@ eldyear@fedora:~/netology/Контейнеризация/Docker-2/Neto_hw_Docker
         "ConfigOnly": false,
         "Options": {},
         "Labels": {
-            "com.docker.compose.config-hash": "058a28b95b58802f8b6e86b92ef04248231e3278868d31c105e5164a2d7a22d6",
+            "com.docker.compose.config-hash": "954bb21ddd2eb48ba06afbce0c9a281146c7aa086b1c952f627760f789ded7bc",
             "com.docker.compose.network": "my_network",
             "com.docker.compose.project": "compose-1",
             "com.docker.compose.version": "5.0.2"
         },
         "Containers": {
-            "5498110c20e5af5cf9d31f397b3fe57b5a3929b7c8fc41d95a29334a7552f8fe": {
+            "f7f057a72f614a81a8cae6e510c1853a718c7c787a1e80ab9a7e5e10bef72d95": {
                 "Name": "compose-1-placeholder-app-1",
-                "EndpointID": "30239a7fe9393eed60290fca314116565b4c74963f3dc84fa0d993bae5987c56",
-                "MacAddress": "96:70:06:1b:a4:50",
+                "EndpointID": "134260cb4f2dc447b9f908b789b213dd5dd7ddc94f16fd86901062e5a3485e9c",
+                "MacAddress": "7e:01:e5:44:d2:e5",
                 "IPv4Address": "10.5.0.2/16",
                 "IPv6Address": ""
             }
