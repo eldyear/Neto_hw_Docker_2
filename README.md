@@ -147,3 +147,23 @@ akmatov-e-m-netology-prometheus:
 
 ![img](img/img2.png)
 ![img](img/img3.png)
+
+
+### Задание 5
+
+```yml
+  akmatov-e-m-netology-grafana:
+    image: grafana/grafana:latest
+    container_name: akmatov-e-m-netology-grafana
+    ports: 
+      - "80:3000"
+    environment:
+      - GF_PATHS_CONFIG=/etc/grafana/custom.ini
+    volumes:
+      - ./grafana/custom.ini:/etc/grafana/custom.ini
+    networks:
+      - my_network
+```
+
+![img](img/img4.png)
+![img](img/img5.png)
