@@ -9,6 +9,30 @@
 
 `Приведите ответ в свободной форме........`
 
+```yml
+version: '3.8'
+services:
+  # Пока здесь будет заглушка, так как в задании 2 нужны только первичные настройки
+  placeholder-app:
+    image: alpine
+    command: sleep infinity
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    name: Akmatov_E_M-my-netology-hw
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.5.0.0/16
+
+volumes:
+  db_data: {}
+  static_content: {}
+```
+
 ```bash
 eldyear@fedora:~/netology/Контейнеризация/Docker-2/Neto_hw_Docker_2/Compose-1$ docker compose up -d
 WARN[0000] /home/eldyear/netology/Контейнеризация/Docker-2/Neto_hw_Docker_2/Compose-1/compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion 
