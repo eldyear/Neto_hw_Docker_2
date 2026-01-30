@@ -1,0 +1,21 @@
+version: '3.8'
+services:
+  # Пока здесь будет заглушка, так как в задании 2 нужны только первичные настройки
+  placeholder-app:
+    image: alpine
+    command: sleep infinity
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    name: Akmatov E.M.
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.5.0.0/16
+
+volumes:
+  db_data: {}
+  static_content: {}
