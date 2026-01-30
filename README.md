@@ -167,3 +167,76 @@ akmatov-e-m-netology-prometheus:
 
 ![img](img/img4.png)
 ![img](img/img5.png)
+
+
+### Задание 6
+
+```yml
+services:
+  akmatov-e-m-netology-prometheus:
+    image: prom/prometheus:latest
+    container_name: akmatov-e-m-netology-prometheus
+    restart: always
+    ports:
+      - "9090:9090"
+    volumes: 
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - my_network
+
+  akmatov-e-m-netology-pushgateway:
+    image: prom/pushgateway:latest
+    container_name: akmatov-e-m-netology-pushgateway
+    restart: on-failure # Перезапуск только при ошибке
+    depends_on:
+      - akmatov-e-m-netology-prometheus
+    ports:
+      - "9091:9091"
+    networks:
+      my_network:
+        aliases:
+          - pushgateway
+
+  akmatov-e-m-netology-grafana:
+    image: grafana/grafana:latest
+    container_name: akmatov-e-m-netology-grafana
+    restart: unless-stopped # Задание 6: режим перезапуска
+    depends_on:
+      - akmatov-e-m-netology-prometheus
+    ports: 
+      - "80:3000"
+    environment:
+      - GF_PATHS_CONFIG=/etc/grafana/custom.ini
+    volumes:
+      - ./grafana/custom.ini:/etc/grafana/custom.ini
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    name: Akmatov_E_M-my-netology-hw
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 10.5.0.0/16
+
+volumes:
+  prometheus_data: {}
+  grafana_data: {}
+```
+
+### Задание 7
+
+```bash
+eldyear@fedora:~/netology/Контейнеризация/Docker-2/Neto_hw_Docker_2/Compose-1$ docker ps
+CONTAINER ID   IMAGE                     COMMAND                  CREATED         STATUS         PORTS                                         NAMES
+c40eef276b07   grafana/grafana:latest    "/run.sh"                8 minutes ago   Up 8 minutes   0.0.0.0:80->3000/tcp, [::]:80->3000/tcp       akmatov-e-m-netology-grafana
+5434f00d698b   prom/pushgateway:latest   "/bin/pushgateway"       8 minutes ago   Up 8 minutes   0.0.0.0:9091->9091/tcp, [::]:9091->9091/tcp   akmatov-e-m-netology-pushgateway
+e9872fd1d3eb   prom/prometheus:latest    "/bin/prometheus --c…"   8 minutes ago   Up 8 minutes   0.0.0.0:9090->9090/tcp, [::]:9090->9090/tcp   akmatov-e-m-netology-prometheus
+f7f057a72f61   alpine                    "sleep infinity"         2 hours ago     Up 2 hours  
+```
+
+[compose.yml](./Compose-1/compose.yml)
+
+![img](img/dashboard.png)
