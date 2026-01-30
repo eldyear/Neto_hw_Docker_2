@@ -19,6 +19,18 @@ services:
         aliases:
           - pushgateway
 
+  akmatov-e-m-netology-grafana:
+    image: grafana/grafana:latest
+    container_name: akmatov-e-m-netology-grafana
+    ports: 
+      - "80:3000"
+    environment:
+      - GF_PATHS_CONFIG=/etc/grafana/custom.ini
+    volumes:
+      - ./grafana/custom.ini:/etc/grafana/custom.ini
+    networks:
+      - my_network
+
 networks:
   my_network:
     name: Akmatov_E_M-my-netology-hw
