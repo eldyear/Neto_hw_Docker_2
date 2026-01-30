@@ -9,7 +9,7 @@ services:
 
 networks:
   my_network:
-    name: Akmatov E M-my-netology-hw
+    name: Akmatov_E_M-my-netology-hw
     driver: bridge
     ipam:
       driver: default
