@@ -108,27 +108,42 @@ eldyear@fedora:~/netology/Контейнеризация/Docker-2/Neto_hw_Docker
 eldyear@fedora:~/netology/Контейнеризация/Docker-2/Neto_hw_Docker_2/Compose-1$ docker ps | grep prometheus
 d209591c9ea1   prom/prometheus:latest   "/bin/prometheus --c…"   11 minutes ago   Up 11 minutes   0.0.0.0:9090->9090/tcp, [::]:9090->9090/tcp   akmatov-e-m-netology-prometheus
 ```
+```yml
+akmatov-e-m-netology-prometheus:
+    image: prom/prometheus:latest
+    container_name: akmatov-e-m-netology-prometheus
+    ports:
+      - "9090:9090"
+    volumes: 
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    networks:
+      - my_network
+```
 
 ![img](./img/img1.png)
 
 ### Задание 4
 
-`Приведите ответ в свободной форме........`
+1. `Добавил еще один контейнер в services`
+2. `Задал имя контейнера как указано в задании`
+3. `Указал порт 9091`
+4. `Убрал volumes`
+4. `Добавил alias pushgateway`
+5. `После запуска проверяю в браузере http://localhost:9091`
+6. `На http://localhost:9090 (Prometheus) в меню Status -> Targets проверяю, опрашивает ли он сам себя`
 
-1. `Заполните здесь этапы выполнения, если требуется ....`
-2. `Заполните здесь этапы выполнения, если требуется ....`
-3. `Заполните здесь этапы выполнения, если требуется ....`
-4. `Заполните здесь этапы выполнения, если требуется ....`
-5. `Заполните здесь этапы выполнения, если требуется ....`
-6. 
-
+```bash
+  akmatov-e-m-netology-pushgateway:
+    image: prom/pushgateway:latest
+    container_name: akmatov-e-m-netology-pushgateway
+    ports:
+      - "9091:9091"
+    networks:
+      my_network:
+        aliases:
+          - pushgateway
 ```
-Поле для вставки кода...
-....
-....
-....
-....
-```
 
-`При необходимости прикрепитe сюда скриншоты
-![Название скриншота](ссылка на скриншот)`
+
+![img](img/img2.png)
+![img](img/img3.png)

@@ -1,5 +1,4 @@
 services:
-  # Пока здесь будет заглушка, так как в задании 2 нужны только первичные настройки
   akmatov-e-m-netology-prometheus:
     image: prom/prometheus:latest
     container_name: akmatov-e-m-netology-prometheus
@@ -9,6 +8,16 @@ services:
       - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     networks:
       - my_network
+
+  akmatov-e-m-netology-pushgateway:
+    image: prom/pushgateway:latest
+    container_name: akmatov-e-m-netology-pushgateway
+    ports:
+      - "9091:9091"
+    networks:
+      my_network:
+        aliases:
+          - pushgateway
 
 networks:
   my_network:
