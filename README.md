@@ -109,7 +109,7 @@ eldyear@fedora:~/netology/Контейнеризация/Docker-2/Neto_hw_Docker
 d209591c9ea1   prom/prometheus:latest   "/bin/prometheus --c…"   11 minutes ago   Up 11 minutes   0.0.0.0:9090->9090/tcp, [::]:9090->9090/tcp   akmatov-e-m-netology-prometheus
 ```
 
-`[Скрин страницы prometheus 1](img/Скрин страницы prometheus 1.png)`
+[Скрин страницы prometheus 1](img/Скрин страницы prometheus 1.png)
 
 ### Задание 4
 
