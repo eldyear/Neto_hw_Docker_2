@@ -1,9 +1,12 @@
-version: '3.8'
 services:
   # Пока здесь будет заглушка, так как в задании 2 нужны только первичные настройки
-  placeholder-app:
-    image: alpine
-    command: sleep infinity
+  akmatov-e-m-netology-prometheus:
+    image: prom/prometheus:latest
+    container_name: akmatov-e-m-netology-prometheus
+    ports:
+      - "9090:9090"
+    volumes: 
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
     networks:
       - my_network
 
